@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CineSpoilers</title>
+
+    <style>
+        body {
+            background-color: #0f0f0f;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #1c1c1c;
+            padding: 15px;
+            border-radius: 10px;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .year {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .desc {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🎬 CineSpoilers</h1>
+
+    <div class="container">
+        {% for movie in movies %}
+            <div class="card">
+                <div class="title">{{ movie.title }}</div>
+                <div class="year">{{ movie.release_year }}</div>
+                <div class="desc">{{ movie.description }}</div>
+            </div>
+        {% empty %}
+            <p>No hay películas registradas</p>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
